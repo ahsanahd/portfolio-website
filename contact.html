@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contact.css">
+    <title>Contact</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="" class="logo">Port<span class="folio">folio.</span></a>
+        <ul class="navitems">
+            <li ><a href="homepage.html">HOME</a></li>
+            <li ><a href="aboutme.html">ABOUT ME</a></li>
+            <li><a href="project.html">PROJECTS</a></li>
+            <li ><a href="skills.html">SKILLS</a></li>
+            <li class="active"><a href="">CONTACT</a></li>
+        </ul>
+        <div class="menu-btn">&#9776;</div>
+    </nav>
+
+    <section class="contactsection">
+        <h2 class="hidden">Contact <span>Me</span></h2>
+        <p class="hidden">Have a question or want to collaborate? Send me a message!</p>
+        <form class="hidden">
+            <div class="form-row">
+                <input type="email" placeholder="Enter your mail" required>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+            <textarea placeholder="Enter your message" required></textarea>
+            <button class="send">Send Message</button>
+        </form>
+    </section>
+
+    <section class="infosection">
+        <a href="tel:+94765815442" target="_blank">
+        <div class="infobox">
+            <i class="fa-solid fa-phone"></i>
+            <h3>PHONE</h3>
+            <p>+94 76 5815442</p><br>
+        </div>
+        </a>
+        <a href="mailto:ahshanahmaed8@gmail.com" target="_blank">
+        <div class="infobox">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>EMAIL</h3>
+            <p>ahshanahmaed8@gmail.com</p><br>
+        </div>
+        </a>
+        <a href="https://wa.me/+94765815442" target="_blank">
+        <div class="infobox">
+            <i class="fa-brands fa-whatsapp"></i>
+            <h3>WHATSAPP</h3>
+            <p>+94 76 5815442</p><br>
+        </div>
+        </a>
+        <a href="#" >
+        <div class="infobox">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>LOCATION</h3>
+            <p>NO:124,kusalanagama,<br>kalawewa,vigithapura.</p>
+        </div>
+        </a>
+    </section>
+    <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+       if (entry.isIntersecting) {
+       if(entry.target.classList.contains('infobox')) {
+        
+            const parent = entry.target.parentElement;
+            const boxes = parent.querySelectorAll('.infobox');
+            boxes.forEach((box, index) => {
+            setTimeout(() => {
+                box.classList.add('show');
+              }, index * 200); 
+            });
+          } else {
+        entry.target.classList.add("show"); 
+          }
+      observer.unobserve(entry.target); 
+     }
+      });
+    }, { threshold: 0.2 });
+
+
+    const hiddenElements = document.querySelectorAll(".hidden, .infobox");
+    hiddenElements.forEach(el => observer.observe(el));
+    </script>
+    <script src="script.js"></script>
+
+
+</body>
+</html>
